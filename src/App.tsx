@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import productsCategory from './productsCategory.json';
 import { useList } from './hooks/list';
 import { List } from './components/list/indext';
+import { Panel } from './components/panel';
 
 function App() {
 
-  const {products, setProducts} = useList();
-
-
-  // useEffect(() => {
-  //   console.log("products category: ", products);
-  // }, [products]);
+  const {products, setSelectedCategoryId, categories} = useList();
 
   return (
     <div className="App">
+      <Panel categories={categories} setSelectedCategoryId={setSelectedCategoryId} />
       <List products={products} />
     </div>
   );

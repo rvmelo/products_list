@@ -11,11 +11,12 @@ export const List: React.FC<ListData> = ({products}) => {
     return (
         <React.Fragment>
             {products.map(product => (
-                <Container>
-                    <h1>{product.name}</h1>
-                    <p>{product.shortDescription}</p>
+                <Container key={product.id}>
+                    <h1>Name: {product.name}</h1>
+                    <h1>Category: {product.category?.name}</h1>
+                    <p>Description: {product.shortDescription}</p>
                     {product?.images?.map(image => (
-                        <img alt={image.alt} src={image?.asset?.url}/>
+                        <img key={image?.asset?.url} alt={image.alt} src={image?.asset?.url}/>
                     ))}
                 </Container>
             ))};
